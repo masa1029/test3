@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //ステータスバーの色
         UINavigationBar.appearance().barTintColor = UIColor(red: 0.149, green: 0.1882, blue: 0.2588, alpha: 1.0)
         UINavigationBar.appearance().isTranslucent = false
-        
+        //スプラッシュ画面時間
         sleep(2);
         
         UIApplication.shared.isStatusBarHidden = false

@@ -8,6 +8,8 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
 
         //ナビゲーションバー下線削除
        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
