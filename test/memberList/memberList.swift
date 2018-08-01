@@ -9,6 +9,8 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.tintColor = UIColor.white
+        
          UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
 
         //ナビゲーションバー下線削除
@@ -49,33 +51,46 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.showsCancelButton = true
+        return true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        self.view.endEditing(true)
+        searchBar.text = ""
+        titleList.reloadData()
+    }
+    
     var tableTmp = [String]()
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
-        print(tableList)
-        
-        tableTmp = self.tableList
+
+        let str:String = searchBar.text!
         
         self.view.endEditing(true)
         
-        //検索結果配列を空にする。
+        getJson()
+        
+        tableTmp = self.tableList
+        
         self.tableList.removeAll()
         
-        if(searchBar.text == "") {
+        if(str == "") {
             //検索文字列が空の場合はすべてを表示する。
-            self.tableList = tableTmp
+            getJson()
         } else {
             //検索文字列を含むデータを検索結果配列に追加する。
-            for data in self.tableList {
-                if data.lowercased().contains(searchBar.text!) {
+            for data in tableTmp{
+                if data.lowercased().contains(str) {
                     self.tableList.append(data)
                 }
             }
         }
         //テーブルを再読み込みする。
         self.titleList.reloadData()
+        
+        self.tableList.removeAll()
     }
     
     @IBOutlet weak var naviItem: UINavigationItem!
