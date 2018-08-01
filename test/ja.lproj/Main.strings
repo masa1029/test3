@@ -1,0 +1,60 @@
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "9tf-nx-8JY"; */
+"9tf-nx-8JY.title" = " ";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "AP5-aw-EdL"; */
+"AP5-aw-EdL.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "タイムライン"; ObjectID = "CKs-k0-TBZ"; */
+"CKs-k0-TBZ.title" = "タイムライン";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "ItN-3j-Gju"; */
+"ItN-3j-Gju.title" = " ";
+
+/* Class = "UINavigationItem"; title = "社員一覧"; ObjectID = "MaH-iV-ram"; */
+"MaH-iV-ram.title" = "社員一覧";
+
+/* Class = "UIButton"; normalTitle = "いいね"; ObjectID = "RL7-0N-hkg"; */
+"RL7-0N-hkg.normalTitle" = "いいね";
+
+/* Class = "UINavigationItem"; title = "dispName"; ObjectID = "Sxi-lq-IjO"; */
+"Sxi-lq-IjO.title" = "dispName";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "T0X-V2-PcW"; */
+"T0X-V2-PcW.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "UxV-b2-HN7"; */
+"UxV-b2-HN7.title" = "Title";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Vj7-Cl-nfH"; */
+"Vj7-Cl-nfH.title" = " ";
+
+/* Class = "UINavigationItem"; title = "あなたへのメッセージ"; ObjectID = "WUv-Lj-OBd"; */
+"WUv-Lj-OBd.title" = "あなたへのメッセージ";
+
+/* Class = "UINavigationItem"; title = "社員一覧"; ObjectID = "ddR-TV-FCP"; */
+"ddR-TV-FCP.title" = "社員一覧";
+
+/* Class = "UISearchBar"; placeholder = "名前で検索"; ObjectID = "iqP-LG-YXX"; */
+"iqP-LG-YXX.placeholder" = "名前で検索";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "jkw-vu-Qo4"; */
+"jkw-vu-Qo4.text" = "Subtitle";
+
+/* Class = "UIButton"; normalTitle = "コメントを送信"; ObjectID = "oKb-Kx-LTO"; */
+"oKb-Kx-LTO.normalTitle" = "コメントを送信";
+
+/* Class = "UINavigationItem"; title = "設定"; ObjectID = "pse-pb-btR"; */
+"pse-pb-btR.title" = "設定";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "q30-za-F8p"; */
+"q30-za-F8p.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "コメントを送信"; ObjectID = "tki-yS-iyy"; */
+"tki-yS-iyy.normalTitle" = "コメントを送信";
+
+/* Class = "UINavigationItem"; title = "名前表示"; ObjectID = "vc0-i8-A1w"; */
+"vc0-i8-A1w.title" = "名前表示";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "z2n-Ec-khg"; */
+"z2n-Ec-khg.title" = " ";
