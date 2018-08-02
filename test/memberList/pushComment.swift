@@ -43,14 +43,15 @@ class pushComment: UIViewController, UINavigationControllerDelegate {
     
     @IBAction func pushComment(_ sender: Any) {
         
-        if self.textView.text! == ""{
+        let checkEmpty = self.textView.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if checkEmpty.isEmpty{
             self.textViewErr(errContents: "コメントが入力されていません")
-        }else if self.textView.text!.count < 10{
-            self.textViewErr(errContents: "10文字以上で入力してください")
         }else{
             confirmSend()
         }
     }
+    
     func confirmSend(){
         
         let alert: UIAlertController = UIAlertController(title: "コメントを送信しますか？", message: "", preferredStyle:  UIAlertControllerStyle.alert)

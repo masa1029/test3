@@ -11,7 +11,7 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         searchBar.tintColor = UIColor.white
         
-         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
 
         //ナビゲーションバー下線削除
        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
@@ -21,25 +21,20 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         barImageView.removeFromSuperview()
         
         searchBar.backgroundColor = UIColor(red: 0.149, green: 0.1882, blue: 0.2588, alpha: 1.0)
-        
         searchBar.delegate = self
 
-        //タイトルの色
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        //戻る<の色
         navigationController?.navigationBar.tintColor = .white
         
         titleList.delegate = self
         titleList.dataSource = self
-        //テーブル引っ張って更新
+        
         initializePullToRefresh()
         
         getJson()
-        
+
         //空セル削除
         titleList.tableFooterView = UIView(frame: .zero)
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     
@@ -61,36 +56,13 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         searchBar.text = ""
         titleList.reloadData()
     }
-    
-    var tableTmp = [String]()
+
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
-        let str:String = searchBar.text!
         
+        searchBar.showsCancelButton = false
         self.view.endEditing(true)
-        
-        getJson()
-        
-        tableTmp = self.tableList
-        
-        self.tableList.removeAll()
-        
-        if(str == "") {
-            //検索文字列が空の場合はすべてを表示する。
-            getJson()
-        } else {
-            //検索文字列を含むデータを検索結果配列に追加する。
-            for data in tableTmp{
-                if data.lowercased().contains(str) {
-                    self.tableList.append(data)
-                }
-            }
-        }
-        //テーブルを再読み込みする。
-        self.titleList.reloadData()
-        
-        self.tableList.removeAll()
+        /*検索*/
     }
     
     @IBOutlet weak var naviItem: UINavigationItem!
@@ -128,7 +100,6 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
      }
      i += 1
      }
-     
      //テーブルを再読込
      self.titleList.reloadData()
      
@@ -142,17 +113,15 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
      }
     
     
-    /// セルの個数を指定するデリゲートメソッド（必須）
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableList.count
     }
     
     
-    /// セルに値を設定するデータソースメソッド（必須）
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // セルを取得
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! customCell
-        // セルに値を設定
+
         cell.goodButton.tag = indexPath.row
         cell.cellTitle.text = tableList[indexPath.row]
         cell.cellSubTitle.text = tableListSubTitle[indexPath.row]
@@ -160,7 +129,7 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.goodCount2[tableList[indexPath.row]] = 0//いいねリミット
         return cell
     }
-    //セルの高さ
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
@@ -229,7 +198,6 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             selectedGood.setImage(self.goodLock, for: UIControlState())
             }
             print(self.goodCount2)
-            
         })
             
             
@@ -256,7 +224,6 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         present(alert, animated: true, completion: nil)
     }
     
-
     //テーブル引っ張って更新
     private weak var refreshControl: UIRefreshControl!
 
@@ -296,7 +263,7 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     //いいね送信
     func postGood(didSelected: String) {
-        let postName:String = didSelected //これがないと何故か動かない
+        let postName:String = didSelected
         let postString = "name=\(postName)"
         
         var request = URLRequest(url: URL(string: "http://www3275ui.sakura.ne.jp/anabuki/05/post/jsonPost.php")!)
