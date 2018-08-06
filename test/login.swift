@@ -9,11 +9,15 @@ class login: UIViewController {
 
     var userlist: [String]=[]
     var passlist:  [String]=[]
-    
+    var a = "a"
+       let userDefaults = UserDefaults.standard
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userDefaults.register(defaults: ["DataStore": ""])
+        userDefaults.register(defaults: ["password": ""])
+      self.Checklogin()
         UIApplication.shared.statusBarStyle = .default
 
         // Do any additional setup after loading the view.
@@ -54,10 +58,12 @@ class login: UIViewController {
                             // UserDefaults のインスタンス
                             let userDefaults = UserDefaults.standard
                             // デフォルト値
+                          /*  userDefaults.register(defaults: ["DataStore": dbname])
                             userDefaults.register(defaults: ["DataStore": dbname])
-                            
+                            */
                             // Keyを指定して保存
                             userDefaults.set(dbname, forKey: "DataStore")
+                            userDefaults.set(dbpass, forKey: "password")
                             // データの同期
                             userDefaults.synchronize()
                             
@@ -65,7 +71,7 @@ class login: UIViewController {
                             let str: String = userDefaults.object(forKey: "DataStore") as! String
                          //  print(str)
                             // Key の値を削除
-                            userDefaults.removeObject(forKey: "DataStore")
+                            //userDefaults.removeObject(forKey: "DataStore")
                             
                             
                             
@@ -91,6 +97,28 @@ class login: UIViewController {
     func ok(){
   self.performSegue(withIdentifier: "loginok", sender: nil )
     }
+    //0807 ########################################################
+    func Checklogin(){
+        userDefaults.synchronize()
+        
+        // Keyを指定して読み込み
+        let usr: String = userDefaults.object(forKey: "DataStore") as! String
+        let pas: String = userDefaults.object(forKey: "password") as! String
+        
+        if usr != ""  && pas !=  ""{
+            print(usr, pas , "in checklogin")
+            
+            user.text = usr
+            password.text = pas
+            
+           // userDefaults.removeObject(forKey: "DataStore")
+           // userDefaults.removeObject(forKey: "password")
+            
+            //0807 ####################################################
+        }
+        
+    }
+    
         
 
 }
