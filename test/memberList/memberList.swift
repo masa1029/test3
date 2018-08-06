@@ -7,6 +7,16 @@ class memberList: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     var searchController = UISearchController()
     
     override func viewDidLoad() {
+let userDefaults = UserDefaults.standard
+        userDefaults.synchronize()
+        
+        // Keyを指定して読み込み
+        let str: String = userDefaults.object(forKey: "DataStore") as! String
+        
+        
+        print(str)
+        
+        
         super.viewDidLoad()
         
         searchBar.tintColor = UIColor.white
