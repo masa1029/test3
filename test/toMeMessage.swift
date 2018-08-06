@@ -46,7 +46,7 @@ override func viewDidLoad() {
     
     //_______________
     extendedLayoutIncludesOpaqueBars = true
-    
+    //aaaaaa
     //タイトルの色
     navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
     //戻る<の色
